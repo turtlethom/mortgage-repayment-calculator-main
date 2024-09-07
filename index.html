@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+	<link rel="stylesheet" href="assets/css/normalize.css">
+	<link rel="stylesheet" href="assets/css/index.css">
+	<link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+	<script type="module" src="assets/js/index.js"></script>
+	<title>Frontend Mentor | Mortgage repayment calculator</title>
+</head>
+<body class="centered bg-slate-300 jarkarta-sans-normal">
+	<main class="page-layout bg-white">
+		<section id="mortgage-calculator-wrapper" class="bg-white">
+			<form id="mortgage-calculator" action="" method="post" class="fw-500"></form>
+
+				<fieldset>
+					<div id="form-header">
+						<h1 class="medium-fs">Mortgage Calculator</h1>
+						<button class="clear-btn bg-white text-slate-900 fw-500">Clear All</button>
+					</div>
+
+					<div id="mortgage-amount-wrapper" class="text-field flex-vertical">
+						<span id="sterling" class="field-symbol text-slate-700 fw-700 jarkarta-sans-italic">&#163;</span>
+						<label for="mortgage-amount" class="fw-500">Mortgage Amount</label>
+						<input
+							id="mortgage-amount"
+							maxlength="10"
+							name="mortgage-amount"
+							type="text"
+						>
+					</div>
+
+					<div id="mortgage-term-wrapper" class="text-field flex-vertical">
+						<label for="mortgage-term">Mortgage Term</label>
+						<input
+							id="mortgage-term"
+							maxlength="3"
+							name="mortgage-term"
+							type="text"
+						>
+						<span id="term-unit" class="field-symbol text-slate-700 fw-700">years</span>
+					</div>
+
+					<div id="interest-rate-wrapper" class="text-field flex-vertical">
+						<label for="interest-rate">Interest Rate</label>
+						<input
+							id="interest-rate"
+							maxlength="5"
+							name="interest-rate"
+							type="text"
+						>
+						<span id="percentage-unit" class="field-symbol text-slate-700 fw-700">%</span>
+					</div>
+
+					<div id="mortgage-type-wrapper" class="flex-vertical">
+						<p class="text-slate-700">Mortgage Type</p>
+						<div id="repayment-wrapper" class="radio-container">
+							<input
+								id="repayment"
+								name="mortgage-type"
+								type="radio"
+							>
+							<label for="repayment" class="fw-700 text-slate-900">Repayment</label>
+						</div>
+						<div id="interest-only-wrapper" class="radio-container">
+							<input
+								id="interest-only"
+								name="mortgage-type"
+								type="radio"
+							>
+							<label for="interest-only" class="fw-700 text-slate-900">Interest Only</label>
+						</div>
+					</div>
+		
+					<button type="submit" class="submit-btn bg-lime fw-700 text-slate-900">
+						<span>
+							<img id="calc-symbol" src="assets/images/icon-calculator.svg">
+						</span>
+						Calculate Repayments
+					</button>
+
+				</fieldset>
+			</form>
+		</section>
+		<!-- Empty results start -->
+		<section id="empty-results" class="results bg-slate-900 flex-vertical">
+			<img id="calc-image" src="assets/images/illustration-empty.svg" alt="empty-results">
+			<h2 class="text-white">Results shown here</h2>
+			<p class="text-slate-500">
+				Complete the form and click “calculate repayments” to see what
+				your monthly repayments would be.
+			</p>
+		</section>
+		<!-- Empty results end -->
+		<!-- Completed results start -->
+		<!-- <section id="completed-results" class="bg-slate-900 flex-vertical">
+			<div class="message flex-vertical">
+				<h2 class="text-white fw-500 medium-fs">Your results</h2>
+				<p class="text-slate-100">
+					Your results are shown below based on the information you provided.
+					To adjust the results, edit the form and click “calculate repayments” again.
+				</p>
+			</div>
+			<div class="statistics bg-slate-900 flex-vertical">
+				<div class="monthly-payments">
+					<h3 class="text-slate-300 fw-500 small-fs">Your monthly repayments</h3>
+					<p id="monthly-total" class="text-lime fw-700 large-fs">&#163;1,797.74</p>
+					<hr>
+				</div>
+				<div class="total">
+					<h4 class="text-slate-300 small-fs">Total you'll repay over the term</h4>
+					<p id="term-total" class="text-white fw-500 medium-fs">&#163;539,322.94</p>
+				</div>
+			</div>
+		</section> -->
+		<!-- Completed results end -->
+	</main>
+
+	<!-- <div class="attribution">
+		Challenge by <a href="https://www.frontendmentor.io?ref=challenge">Frontend Mentor</a>. 
+		Coded by <a href="#">Your Name Here</a>.
+	</div> -->
+</body>
+</html>

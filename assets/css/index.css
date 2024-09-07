@@ -1,0 +1,340 @@
+@font-face {
+    font-family: 'plus jakarta sans', sans-serif;
+    src: url('../fonts/plusjakartasans-variablefont_wght.ttf') format('truetype');
+    font-weight: 500 700;
+}
+
+:root {
+    /*===== Colors =====*/
+
+    /* Primary */
+    --lime: 61, 70%, 52%;
+    --red: 4, 69%, 50%;
+    /* Neutral */
+    --white: 0, 0%, 100%;
+    --slate-100: 202, 86%, 94%;
+    --slate-300: 203, 41%, 72%;
+    --slate-500: 200, 26%, 54%;
+    --slate-700: 200, 24%, 40%;
+    --slate-900: 202, 55%, 16%;
+
+    /*===== Typography =====*/
+    /* Font Size */
+    --small-fs: 16px;
+    --medium-fs: 24px;
+    --large-fs: 48px;
+
+    /* Font Family */
+    --jakarta-sans-font: 'plus jakarta sans', system-ui;
+
+    /* Font Weights */
+    --fw-500: 500;
+    --fw-700: 700;
+}
+
+/*===== Utility Classes =====*/
+/* Color Classes */
+.text-lime { color: hsl(var(--lime)) }
+.text-red { color: hsl(var(--red)); }
+.text-white { color: hsl(var(--white)); }
+.text-slate-100 { color: hsl(var(--slate-100)); }
+.text-slate-300 { color: hsl(var(--slate-300)); }
+.text-slate-500 { color: hsl(var(--slate-500)); }
+.text-slate-700 { color: hsl(var(--slate-700)); }
+.text-slate-900 { color: hsl(var(--slate-900)); }
+
+.bg-lime { background-color: hsl(var(--lime)); }
+.bg-red { background-color: hsl(var(--red)); }
+.bg-white { background-color: hsl(var(--white)); }
+.bg-slate-100 { background-color: hsl(var(--slate-100)); }
+.bg-slate-300 { background-color: hsl(var(--slate-300)); }
+.bg-slate-500 { background-color: hsl(var(--slate-500));}
+.bg-slate-700 { background-color: hsl(var(--slate-700)); }
+.bg-slate-900 { background-color: hsl(var(--slate-900)); }
+
+/*===== Typography Classes =====*/
+/* Font Sizes */
+.small-fs { font-size: var(--small-fs); }
+.medium-fs { font-size: var(--medium-fs); }
+.large-fs { font-size: var(--large-fs); }
+
+/* Font Family */
+.jarkarta-sans-normal {
+    font-family: var(--jakarta-sans-font);
+}
+
+.jarkarta-sans-italic {
+    font-family: var(--jakarta-sans-font);
+    font-style: italic;
+}
+
+/* Font Weights */
+.fw-500 { font-weight: var(--fw-500); }
+.fw-700 { font-weight: var(--fw-700); }
+
+/*===== Extra Utility Classes =====*/
+
+.centered {
+    display: grid;
+    place-items: center;
+}
+
+.flex-vertical {
+    display: flex;
+    flex-direction: column;
+}
+
+/*===== Custom CSS =====*/
+
+/*===== Layouts =====*/
+.page-layout {
+    display: grid;
+    inline-size: min(65rem, 100%);
+    grid-template-areas: 
+    "calculator results" 
+    ;
+    border-radius: 1em;
+}
+#mortgage-calculator-wrapper { grid-area: calculator; }
+#empty-results { grid-area: results; }
+
+#mortgage-calculator-wrapper {
+    border-top-left-radius: 1em;
+    border-bottom-left-radius: 1em;
+}
+
+#form-header {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.clear-btn {
+    border: none;
+    width: max-content;
+    text-wrap: nowrap;
+    text-decoration: underline;
+}
+
+/*===== Form Layout =====*/
+fieldset {
+    display: grid;
+    grid-template-areas: 
+    "head head"
+    "amount amount"
+    "term rate"
+    "type type"
+    "btn btn"
+    ;
+    border: none;
+    gap: 1rem;
+}
+
+#mortgage-calculator-wrapper {
+    padding: 2rem;
+}
+
+#mortgage-calculator > * { position: relative; }
+#form-header { grid-area: head; }
+#mortgage-amount-wrapper { grid-area: amount; }
+#mortgage-term-wrapper { grid-area: term; }
+#interest-rate-wrapper { grid-area: rate; }
+#mortgage-type-wrapper { grid-area: type; }
+button[type="submit"] { grid-area: btn; }
+
+/*===== Form Styling =====*/
+.text-field {
+    position: relative;
+    gap: 1rem;
+    border-radius: 5px;
+}
+
+.field-symbol {
+    background-color: hsla(var(--slate-100), 0.5);
+    position: absolute;
+    z-index: 0;
+    border-radius: 5px;
+    top: 50%;
+    bottom: 0;
+    align-content: center;
+    padding-inline: 1rem;
+}
+#term-unit, #percentage-unit {
+    right: 0;
+}
+
+#form-header {
+
+}
+
+label {
+    display: block;
+    height: max-content;
+    color: hsl(var(--slate-700));
+    font-weight: 500;
+}
+
+input[type='text'] {
+    position: relative;
+    background-color: transparent;
+    cursor: pointer;
+    z-index: 1;
+    width: 100%;
+    border: 1px solid hsl(var(--slate-700));
+    font-weight: var(--fw-700);
+    padding-block: 0.5rem;
+    padding-inline: 1rem;
+    border-radius: 5px;
+}
+
+input[type='radio'] {
+    display: grid;
+    place-content: center;
+    appearance: none;
+    -webkit-appearance: none;
+    background-color: hsl(var(--white));
+    margin: 0;
+
+    font: inherit;
+    color: hsl(var(--slate-700));
+    width: 1.15em;
+    height: 1.15em;
+    border: 0.1em solid currentColor;
+    border-radius: 2em;
+}
+
+input[type="radio"]::before {
+  content: "";
+  width: 0.65em;
+  height: 0.65em;
+  border-radius: 50%;
+  transform: scale(0);
+  transition: 120ms transform ease-in-out;
+  box-shadow: inset 1em 1em hsl(var(--lime));
+}
+
+input[type="radio"]:checked::before {
+    transform: scale(1);
+}
+
+input[id='mortgage-amount'] {
+    text-indent: 2.5rem;
+}
+
+button[type="submit"] {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: max(60%, 15rem);
+    text-wrap: nowrap;
+    gap: 0.5rem;
+    border: none;
+    padding: 0.75em 2em;
+    border-radius: 2em;
+    margin-top: 1rem;
+}
+
+#mortgage-type-wrapper {
+    gap: 0.5rem;
+}
+
+.radio-container {
+    display: flex;
+    cursor: pointer;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.75rem;
+    border: 1px solid hsl(var(--slate-700));
+    border-radius: 5px;
+}
+
+#calc-symbol {
+    color: hsl(var(--slate-900));
+    min-width: 25px;
+    margin-inline-start: auto;
+    font-size: 2rem;
+}
+
+.results {
+    border-bottom-right-radius: 1em;
+    border-top-right-radius: 1em;
+    border-bottom-left-radius: 5em;
+}
+
+#empty-results {
+    padding: 2rem;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+}
+
+#empty-results > h2 {
+    margin-bottom: 1rem;
+}
+
+#calc-image {
+    inline-size: 12.5rem;
+}
+
+#completed-results {
+    gap: 2rem;
+    padding: 3rem;
+}
+
+.statistics {
+    filter: brightness(85%);
+    padding: 1rem;
+    border-radius: 1em;
+    border-top: 3px solid hsl(var(--lime));
+    gap: 1rem;
+}
+
+.message {
+    gap: 1rem;
+}
+
+hr {
+    border: none;
+    border-top: 1px solid hsla(var(--slate-100), 0.5);
+    border-radius: 10px;
+}
+
+/*===== Hover/Active Styling =====*/
+
+.hidden {
+    display: none;
+}
+
+.selected {
+    background-color: hsla(var(--lime), 0.1);
+    border-color: hsl(var(--lime));
+}
+
+.symbol-active {
+    background-color: hsl(var(--lime));
+}
+
+.radio-container:hover {
+    background-color: hsla(var(--lime), 0.1);
+    border-color: hsl(var(--lime));
+}
+
+input[type='radio']:checked {
+    border-color: hsl(var(--lime));
+}
+
+input[type='text']:hover
+{
+    border-width: 1px;
+    border-color: hsl(var(--slate-900));
+}
+
+input[type='text']:focus {
+    border-color: hsl(var(--lime));
+    outline: hsl(var(--lime));
+}
+
+/*===== Attribution Styles =====*/
+
+.attribution { font-size: 11px; text-align: center; }
+.attribution a { color: hsl(228, 45%, 44%); }
