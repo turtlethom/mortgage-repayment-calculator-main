@@ -159,12 +159,8 @@ button[type="submit"] { grid-area: btn; }
     align-content: center;
     padding-inline: 1rem;
 }
-#term-unit, #percentage-unit {
+#term-symbol, #percentage-unit {
     right: 0;
-}
-
-#form-header {
-
 }
 
 label {
@@ -311,6 +307,7 @@ hr {
 }
 
 .symbol-active {
+    color: hsl(var(--slate-900));
     background-color: hsl(var(--lime));
 }
 
