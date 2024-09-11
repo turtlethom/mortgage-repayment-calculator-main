@@ -12,12 +12,18 @@
 <body class="centered bg-slate-300 jarkarta-sans-normal">
 	<main class="page-layout bg-white">
 		<section id="mortgage-calculator-wrapper" class="bg-white">
-			<form id="mortgage-calculator" action="" method="post" class="fw-500"></form>
+			<form id="mortgage-calculator" class="fw-500" autocomplete="off">
 
 				<fieldset>
 					<div id="form-header">
 						<h1 class="medium-fs">Mortgage Calculator</h1>
-						<button class="clear-btn bg-white text-slate-900 fw-500">Clear All</button>
+						<button
+							class="clear-btn bg-white text-slate-900 fw-500"
+							form="mortgage-calculator"
+						>
+						Clear All
+						</button>
+							
 					</div>
 
 					<div id="mortgage-amount-wrapper" class="text-field flex-vertical">
@@ -28,6 +34,7 @@
 							maxlength="10"
 							name="mortgage-amount"
 							type="text"
+							form="mortgage-calculator"
 						>
 					</div>
 
@@ -38,6 +45,7 @@
 							maxlength="3"
 							name="mortgage-term"
 							type="text"
+							form="mortgage-calculator"
 						>
 						<span id="term-symbol" class="field-symbol text-slate-700 fw-700">years</span>
 					</div>
@@ -49,8 +57,9 @@
 							maxlength="5"
 							name="interest-rate"
 							type="text"
+							form="mortgage-calculator"
 						>
-						<span id="percentage-unit" class="field-symbol text-slate-700 fw-700">%</span>
+						<span id="percentage-unit" class="field-symbol text-slate-700 fw-700">&#37;</span>
 					</div>
 
 					<div id="mortgage-type-wrapper" class="flex-vertical">
@@ -60,6 +69,7 @@
 								id="repayment"
 								name="mortgage-type"
 								type="radio"
+								form="mortgage-calculator"
 							>
 							<label for="repayment" class="fw-700 text-slate-900">Repayment</label>
 						</div>
@@ -68,16 +78,19 @@
 								id="interest-only"
 								name="mortgage-type"
 								type="radio"
+								form="mortgage-calculator"
 							>
 							<label for="interest-only" class="fw-700 text-slate-900">Interest Only</label>
 						</div>
 					</div>
 		
-					<button type="submit" class="submit-btn bg-lime fw-700 text-slate-900">
+					<button type="submit" form="mortgage-calculator" class="submit-btn bg-lime fw-700 text-slate-900">
 						<span>
 							<img id="calc-symbol" src="assets/images/icon-calculator.svg">
 						</span>
-						Calculate Repayments
+						<span>
+							Calculate Repayments
+						</span>
 					</button>
 
 				</fieldset>
@@ -93,8 +106,9 @@
 			</p>
 		</section>
 		<!-- Empty results end -->
+
 		<!-- Completed results start -->
-		<!-- <section id="completed-results" class="bg-slate-900 flex-vertical">
+		<section id="completed-results" class="bg-slate-900 flex-vertical hidden">
 			<div class="message flex-vertical">
 				<h2 class="text-white fw-500 medium-fs">Your results</h2>
 				<p class="text-slate-100">
@@ -103,17 +117,17 @@
 				</p>
 			</div>
 			<div class="statistics bg-slate-900 flex-vertical">
-				<div class="monthly-payments">
+				<div class="monthly-payment-wrapper">
 					<h3 class="text-slate-300 fw-500 small-fs">Your monthly repayments</h3>
-					<p id="monthly-total" class="text-lime fw-700 large-fs">&#163;1,797.74</p>
+					<p id="monthly-payment-total" class="text-lime fw-700 large-fs">&#163;1,797.74</p>
 					<hr>
 				</div>
-				<div class="total">
+				<div class="total-repayment-wrapper">
 					<h4 class="text-slate-300 small-fs">Total you'll repay over the term</h4>
-					<p id="term-total" class="text-white fw-500 medium-fs">&#163;539,322.94</p>
+					<p id="total-repayment" class="text-white fw-500 medium-fs">&#163;539,322.94</p>
 				</div>
 			</div>
-		</section> -->
+		</section>
 		<!-- Completed results end -->
 	</main>
 

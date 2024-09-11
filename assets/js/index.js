@@ -1,12 +1,13 @@
-import handleSymbols from "./inputHandler.js";
-import applyRadioEvents from "./radioHandler.js";
-const form = document.getElementById('mortgage-calculator');
+import applyFormFunctionality from "./form.js";
+import handleTextSymbols from "./inputHandler.js";
+import handleRadioBtns from "./radioHandler.js";
 
 function main() {
-    applyRadioEvents();
-    handleSymbols();
+    const form = document.getElementById('mortgage-calculator');
+
+    handleRadioBtns();
+    handleTextSymbols();
+    applyFormFunctionality(form);
 } 
 
-function handleForm() {}
-
-main()
+main();

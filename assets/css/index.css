@@ -1,5 +1,5 @@
 @font-face {
-    font-family: 'plus jakarta sans', sans-serif;
+    font-family: 'Plus Jakarta Sans', sans-serif;
     src: url('../fonts/plusjakartasans-variablefont_wght.ttf') format('truetype');
     font-weight: 500 700;
 }
@@ -23,9 +23,9 @@
     --small-fs: 16px;
     --medium-fs: 24px;
     --large-fs: 48px;
-
+    
     /* Font Family */
-    --jakarta-sans-font: 'plus jakarta sans', system-ui;
+    --jakarta-sans-font: 'Plus Jakarta Sans', sans-serif;
 
     /* Font Weights */
     --fw-500: 500;
@@ -61,10 +61,13 @@
 /* Font Family */
 .jarkarta-sans-normal {
     font-family: var(--jakarta-sans-font);
+    font-optical-sizing: auto;
+    font-style: normal;
 }
 
 .jarkarta-sans-italic {
     font-family: var(--jakarta-sans-font);
+    font-optical-sizing: auto;
     font-style: italic;
 }
 
@@ -86,6 +89,10 @@
 
 /*===== Custom CSS =====*/
 
+button {
+    cursor: pointer;
+}
+
 /*===== Layouts =====*/
 .page-layout {
     display: grid;
@@ -99,6 +106,7 @@
 #empty-results { grid-area: results; }
 
 #mortgage-calculator-wrapper {
+    padding: 2rem;
     border-top-left-radius: 1em;
     border-bottom-left-radius: 1em;
 }
@@ -124,14 +132,10 @@ fieldset {
     "amount amount"
     "term rate"
     "type type"
-    "btn btn"
+    "btn ..."
     ;
     border: none;
     gap: 1rem;
-}
-
-#mortgage-calculator-wrapper {
-    padding: 2rem;
 }
 
 #mortgage-calculator > * { position: relative; }
@@ -158,6 +162,7 @@ button[type="submit"] { grid-area: btn; }
     bottom: 0;
     align-content: center;
     padding-inline: 1rem;
+    transition: background-color 0.2s ease-in-out;
 }
 #term-symbol, #percentage-unit {
     right: 0;
@@ -219,9 +224,6 @@ input[id='mortgage-amount'] {
 
 button[type="submit"] {
     display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    width: max(60%, 15rem);
     text-wrap: nowrap;
     gap: 0.5rem;
     border: none;
@@ -238,6 +240,9 @@ button[type="submit"] {
     display: flex;
     cursor: pointer;
     align-items: center;
+    transition: 
+        background-color 0.5s ease-in-out,
+        border-color 0.3s ease-in-out;
     gap: 1rem;
     padding: 0.75rem;
     border: 1px solid hsl(var(--slate-700));
@@ -329,6 +334,10 @@ input[type='text']:hover
 input[type='text']:focus {
     border-color: hsl(var(--lime));
     outline: hsl(var(--lime));
+}
+
+button[type="submit"]:hover {
+   background-color: hsl(var(--lime), 0.5); 
 }
 
 /*===== Attribution Styles =====*/

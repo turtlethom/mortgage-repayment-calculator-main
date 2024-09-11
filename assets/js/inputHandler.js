@@ -1,4 +1,4 @@
-function handleSymbols() {
+function handleTextSymbols() {
     const amountInput = document.getElementById('mortgage-amount');
     const sterlingSymbol = document.getElementById('sterling');
 
@@ -12,9 +12,9 @@ function handleSymbols() {
     termInput.addEventListener('focus', () => handleFocus(termInput, termSymbol));
     interestRateInput.addEventListener('focus', () => handleFocus(interestRateInput, percentageSymbol));
 
-    amountInput.addEventListener('focusout', () => handleFocusOut(amountInput, sterlingSymbol));
-    termInput.addEventListener('focusout', () => handleFocusOut(termInput, termSymbol));
-    interestRateInput.addEventListener('focusout', () => handleFocusOut(interestRateInput, percentageSymbol));
+    amountInput.addEventListener('focusout', () => handleFocusOut(sterlingSymbol));
+    termInput.addEventListener('focusout', () => handleFocusOut(termSymbol));
+    interestRateInput.addEventListener('focusout', () => handleFocusOut(percentageSymbol));
 
 }
 
@@ -24,8 +24,8 @@ function handleFocus(input, symbol) {
     }
 }
 
-function handleFocusOut(input, symbol) {
+function handleFocusOut(symbol) {
     symbol.classList.remove('symbol-active');
 }
 
-export default handleSymbols;
+export default handleTextSymbols;
