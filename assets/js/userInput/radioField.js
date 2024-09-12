@@ -1,4 +1,4 @@
-function handleRadioBtns() {
+function customizeRadioButtons() {
 
     // Selecting Repayment Input & Container
     const repaymentContainer = document.getElementById('repayment-wrapper');
@@ -50,4 +50,4 @@ function handleRadioChange(radioContainer, radioInput, otherContainer) {
     radioContainer.classList.remove('selected')
 }
 
-export default handleRadioBtns;
+export default customizeRadioButtons;

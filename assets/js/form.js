@@ -1,23 +1,29 @@
-import { calculateInterestOnlyMortgage, calculateRepaymentMortgage, calculateTotalRepayment } from "./calculateMortgage.js";
+import { calculateInterestOnlyMortgage, calculateRepaymentMortgage, calculateTotalRepayment } from "./mortgage/mortgage.js";
+import Display from "./util/display.js";
+
+const MortgageParse = {
+    parseAmount: (amountText) =>  parseInt(amountText.split(',').join('')),
+    parseTerm: (termText) => parseInt(termText),
+    parseInterestRate: (percentageText) => parseFloat(percentageText / 100.00)
+};
 
 function applyFormFunctionality(form) {
     form.addEventListener('submit', (event) => {
         event.preventDefault(); 
 
-        // Grabbing All Inputs
+        // Grabbing All Text Inputs
         const amountInput = document.getElementById('mortgage-amount');
         const termInput = document.getElementById('mortgage-term');
         const rateInput = document.getElementById('interest-rate');
 
+        // Grabbing All Radio Inputs
         const repaymentInput = document.getElementById('repayment');
         const interestOnlyInput = document.getElementById('interest-only');
-        console.log(rateInput);
-        console.log(interestOnlyInput);
 
         // Parsing Text Inputs
-        const amount = parseAmount(amountInput.value);
-        const term = parseTerm(termInput.value);
-        const interestRate = parseInterestRate(rateInput.value);
+        const amount = MortgageParse.parseAmount(amountInput.value);
+        const term = MortgageParse.parseTerm(termInput.value);
+        const interestRate = MortgageParse.parseInterestRate(rateInput.value);
 
         // Calculating Mortgage Information
         let monthlyPayment;
@@ -27,21 +33,12 @@ function applyFormFunctionality(form) {
         const totalRepayment = calculateTotalRepayment(monthlyPayment, term);
         console.log(monthlyPayment);
         console.log(totalRepayment);
-        
+
+        // updateMortgageDisplay();
+        // Display.hideElement(emptyResults);
+        // Display.showElement(completedResults);
+
     });
-}
-
-function parseAmount(amountText) {
-    const reformatted = amountText.split(',').join('');
-    return parseInt(reformatted);
-}
-
-function parseTerm(termText) {
-    return parseInt(termText);
-}
-
-function parseInterestRate(percentageText) {
-    return parseFloat(percentageText) / 100.00;
 }
 
 export default applyFormFunctionality;

@@ -97,7 +97,7 @@
 			</form>
 		</section>
 		<!-- Empty results start -->
-		<section id="empty-results" class="results bg-slate-900 flex-vertical">
+		<section id="empty-results" class="results bg-slate-900 flex-vertical hidden">
 			<img id="calc-image" src="assets/images/illustration-empty.svg" alt="empty-results">
 			<h2 class="text-white">Results shown here</h2>
 			<p class="text-slate-500">
@@ -108,7 +108,7 @@
 		<!-- Empty results end -->
 
 		<!-- Completed results start -->
-		<section id="completed-results" class="bg-slate-900 flex-vertical hidden">
+		<section id="completed-results" class="bg-slate-900 flex-vertical">
 			<div class="message flex-vertical">
 				<h2 class="text-white fw-500 medium-fs">Your results</h2>
 				<p class="text-slate-100">
@@ -119,12 +119,18 @@
 			<div class="statistics bg-slate-900 flex-vertical">
 				<div class="monthly-payment-wrapper">
 					<h3 class="text-slate-300 fw-500 small-fs">Your monthly repayments</h3>
-					<p id="monthly-payment-total" class="text-lime fw-700 large-fs">&#163;1,797.74</p>
+					<p id="monthly-payment-total" class="text-lime fw-700 large-fs">
+						<span>&#163;</span>
+						<span id="monthly-payment-text">N/A</span>
+					</p>
 					<hr>
 				</div>
 				<div class="total-repayment-wrapper">
 					<h4 class="text-slate-300 small-fs">Total you'll repay over the term</h4>
-					<p id="total-repayment" class="text-white fw-500 medium-fs">&#163;539,322.94</p>
+					<p id="total-repayment" class="text-white fw-500 medium-fs">
+						<span>&#163;</span>
+						<span id="total-repayment-value">N/A</span>
+					</p>
 				</div>
 			</div>
 		</section>

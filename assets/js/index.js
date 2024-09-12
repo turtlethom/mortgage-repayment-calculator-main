@@ -1,13 +1,17 @@
-import applyFormFunctionality from "./form.js";
-import handleTextSymbols from "./inputHandler.js";
-import handleRadioBtns from "./radioHandler.js";
+import handleForm from "./form.js";
+import handleTextSymbols from "./userInput/textField.js";
+import handleRadioButtons from "./userInput/radioField.js";
 
 function main() {
     const form = document.getElementById('mortgage-calculator');
+    if (form !== null) {
+        handleRadioButtons();
+        handleTextSymbols();
+        handleForm(form);
+        return 0;
+    }
 
-    handleRadioBtns();
-    handleTextSymbols();
-    applyFormFunctionality(form);
+    console.error("Form Does Not Exist");
 } 
 
 main();
