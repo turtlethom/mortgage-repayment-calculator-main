@@ -1,4 +1,4 @@
-import handleForm from "./form.js";
+import handleForm from "./form/form.js";
 import handleTextSymbols from "./userInput/textField.js";
 import handleRadioButtons from "./userInput/radioField.js";
 

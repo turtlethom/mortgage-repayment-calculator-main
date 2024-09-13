@@ -1,3 +1,5 @@
+import Format from "../util/format.js";
+
 function handleTextSymbols() {
     const amountInput = document.getElementById('mortgage-amount');
     const sterlingSymbol = document.getElementById('sterling');
@@ -16,6 +18,8 @@ function handleTextSymbols() {
     termInput.addEventListener('focusout', () => handleFocusOut(termSymbol));
     interestRateInput.addEventListener('focusout', () => handleFocusOut(percentageSymbol));
 
+    amountInput.addEventListener('input', (event) => handleInput(event, "integer"));
+    termInput.addEventListener('input', (event) => handleInput(event, "integer"));
 }
 
 function handleFocus(input, symbol) {
@@ -26,6 +30,17 @@ function handleFocus(input, symbol) {
 
 function handleFocusOut(symbol) {
     symbol.classList.remove('symbol-active');
+}
+
+function handleInput(event, numberType) {
+    let inputVal = event.target.value;
+    if (Number.isNaN(inputVal) || !inputVal ) {
+        event.target.value = "";
+        return;
+    }
+    
+    let formattedNumber = Format.addCommas(inputVal, numberType);
+    event.target.value = formattedNumber;
 }
 
 export default handleTextSymbols;

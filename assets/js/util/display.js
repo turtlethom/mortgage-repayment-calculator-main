@@ -1,6 +1,6 @@
 const Display = {
-    hideElement: (element) => element.classList.add('hidden'),
-    showElement: (element) => element.classList.remove('hidden')
+    hide: (element) => element.classList.add('hidden'),
+    show: (element) => element.classList.remove('hidden')
 }
 
 export default Display;
