@@ -1,6 +1,6 @@
 import handleForm from "./form/form.js";
-import handleTextSymbols from "./userInput/textField.js";
-import handleRadioButtons from "./userInput/radioField.js";
+import handleTextSymbols from "./fields/textField.js";
+import handleRadioButtons from "./fields/radioField.js";
 
 function main() {
     const form = document.getElementById('mortgage-calculator');
