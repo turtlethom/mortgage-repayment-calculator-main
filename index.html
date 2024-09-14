@@ -4,6 +4,7 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
 	<link rel="stylesheet" href="assets/css/normalize.css">
+	<link rel="stylesheet" href="assets/css/animation.css">
 	<link rel="stylesheet" href="assets/css/index.css">
 	<link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
 	<script type="module" src="assets/js/index.js"></script>
@@ -18,9 +19,10 @@
 					<div id="form-header">
 						<h1 class="medium-fs">Mortgage Calculator</h1>
 						<button
-							class="clear-btn bg-white text-slate-900 fw-500"
-							form="mortgage-calculator"
+							id="clear-btn"
 							type="reset"
+							form="mortgage-calculator"
+							class="bg-white text-slate-900 fw-500"
 						>
 						Clear All
 						</button>
@@ -85,7 +87,12 @@
 						</div>
 					</div>
 		
-					<button type="submit" form="mortgage-calculator" class="submit-btn bg-lime fw-700 text-slate-900">
+					<button
+						id="submit-btn"
+						type="submit" 
+						form="mortgage-calculator"
+						class="bg-lime fw-700 text-slate-900"
+					>
 						<span>
 							<img id="calc-symbol" src="assets/images/icon-calculator.svg">
 						</span>
@@ -97,43 +104,40 @@
 				</fieldset>
 			</form>
 		</section>
-		<!-- Empty results start -->
-		<section id="empty-results" class="results bg-slate-900 flex-vertical">
-			<img id="calc-image" src="assets/images/illustration-empty.svg" alt="empty-results">
-			<h2 class="text-white">Results shown here</h2>
-			<p class="text-slate-500">
-				Complete the form and click “calculate repayments” to see what
-				your monthly repayments would be.
-			</p>
-		</section>
-		<!-- Empty results end -->
-
-		<!-- Completed results start -->
-		<section id="completed-results" class="bg-slate-900 flex-vertical hidden">
-			<div class="message flex-vertical">
-				<h2 class="text-white fw-500 medium-fs">Your results</h2>
-				<p class="text-slate-100">
-					Your results are shown below based on the information you provided.
-					To adjust the results, edit the form and click “calculate repayments” again.
+		<div id="results-wrapper" class="bg-slate-900 stacked">
+			<section id="empty-results" class="results bg-slate-900 flex-vertical">
+				<img id="calc-image" src="assets/images/illustration-empty.svg" alt="empty-results">
+				<h2 class="text-white">Results shown here</h2>
+				<p class="text-slate-500">
+					Complete the form and click “calculate repayments” to see what
+					your monthly repayments would be.
 				</p>
-			</div>
-			<div class="statistics bg-slate-900 flex-vertical">
-				<div class="monthly-payment-wrapper">
-					<h3 class="text-slate-300 fw-500 small-fs">Your monthly repayments</h3>
-					<p id="monthly-payment-total" class="text-lime fw-700 large-fs">
-						<span id="monthly-payment-text">N/A</span>
-					</p>
-					<hr>
-				</div>
-				<div class="total-repayment-wrapper">
-					<h4 class="text-slate-300 small-fs">Total you'll repay over the term</h4>
-					<p id="total-repayment" class="text-white fw-500 medium-fs">
-						<span id="total-repayment-text">N/A</span>
+			</section>
+			<section id="completed-results" class="results bg-slate-900 flex-vertical hidden">
+				<div class="message flex-vertical">
+					<h2 class="text-white fw-500 medium-fs">Your results</h2>
+					<p class="text-slate-100">
+						Your results are shown below based on the information you provided.
+						To adjust the results, edit the form and click “calculate repayments” again.
 					</p>
 				</div>
-			</div>
-		</section>
-		<!-- Completed results end -->
+				<div class="statistics bg-slate-900 flex-vertical fade-in">
+					<div class="monthly-payment-wrapper">
+						<h3 class="text-slate-300 fw-500 small-fs">Your monthly repayments</h3>
+						<p id="monthly-payment-total" class="text-lime fw-700 large-fs">
+							<span id="monthly-payment-text">N/A</span>
+						</p>
+						<hr>
+					</div>
+					<div class="total-repayment-wrapper">
+						<h4 class="text-slate-300 small-fs">Total you'll repay over the term</h4>
+						<p id="total-repayment" class="text-white fw-500 medium-fs">
+							<span id="total-repayment-text">N/A</span>
+						</p>
+					</div>
+				</div>
+			</section>
+		</div>
 	</main>
 
 	<!-- <div class="attribution">
