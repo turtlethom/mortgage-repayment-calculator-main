@@ -1,4 +1,5 @@
 import Display from "../util/display.js";
+import Selector from "../selector/selector.js";
 
 const MortgageParse = {
     parseAmount: (amountText) =>  parseInt(amountText.split(',').join('')),
@@ -20,20 +21,20 @@ class MortgageData {
 
     getInterestRateVal() { return this.interestDecimal }
 
-    isValidInput() { return this.amount && this.term && this.interestDecimal; }
+    isValidInput() { 
+        return this.amount && this.term && this.interestDecimal; 
+    }
 
     updateMortgageDisplay(monthlyPayment, totalRepayment) {
-    // Grabbing Empty And Completed Result Section
-        const emptyResults = document.getElementById('empty-results');
-        const completedResults = document.getElementById('completed-results');
+        // Grabbing Empty And Completed Result Section
+        const { emptyResults, completedResults } = Selector.selectResultContainers();
+        const { monthlyPaymentElem, totalRepaymentElem } = Selector.selectTextDisplays();
 
-        if ( this.isValidInput() ) {
-            Display.show(completedResults);
-            Display.hide(emptyResults);
+        if ( this.isValidInput() && !emptyResults.classList.contains('hidden') ) {
+            Display.toggle(emptyResults);
+            Display.toggle(completedResults);
         }
 
-        const monthlyPaymentElem = document.getElementById('monthly-payment-text');
-        const totalRepaymentElem = document.getElementById('total-repayment-text');
 
         const formattedMonthlyPayment = monthlyPayment.toLocaleString(
             undefined,

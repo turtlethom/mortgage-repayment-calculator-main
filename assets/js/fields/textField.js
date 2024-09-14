@@ -1,22 +1,20 @@
+import Selector from "../selector/selector.js";
 import Format from "../util/format.js";
 
 function handleTextSymbols() {
-    const amountInput = document.getElementById('mortgage-amount');
-    const sterlingSymbol = document.getElementById('sterling');
+    const textInputs = Selector.selectTextInputs();
+    const symbols = Selector.selectSymbols();
 
-    const termInput = document.getElementById('mortgage-term');
-    const termSymbol = document.getElementById('term-symbol');
+    const { amountInput, termInput, interestRateInput } = textInputs;
+    const { amountSymbol, termSymbol, interestRateSymbol } = symbols;
 
-    const interestRateInput = document.getElementById('interest-rate');
-    const percentageSymbol = document.getElementById('percentage-unit');
-
-    amountInput.addEventListener('focus', () => handleFocus(amountInput, sterlingSymbol));
+    amountInput.addEventListener('focus', () => handleFocus(amountInput, amountSymbol));
     termInput.addEventListener('focus', () => handleFocus(termInput, termSymbol));
-    interestRateInput.addEventListener('focus', () => handleFocus(interestRateInput, percentageSymbol));
+    interestRateInput.addEventListener('focus', () => handleFocus(interestRateInput, interestRateSymbol));
 
-    amountInput.addEventListener('focusout', () => handleFocusOut(sterlingSymbol));
+    amountInput.addEventListener('focusout', () => handleFocusOut(amountSymbol));
     termInput.addEventListener('focusout', () => handleFocusOut(termSymbol));
-    interestRateInput.addEventListener('focusout', () => handleFocusOut(percentageSymbol));
+    interestRateInput.addEventListener('focusout', () => handleFocusOut(interestRateSymbol));
 
     amountInput.addEventListener('input', (event) => handleInput(event, "integer"));
     termInput.addEventListener('input', (event) => handleInput(event, "integer"));

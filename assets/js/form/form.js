@@ -9,12 +9,13 @@ function applyFormFunctionality(form) {
         const amountInput = document.getElementById('mortgage-amount');
         const termInput = document.getElementById('mortgage-term');
         const rateInput = document.getElementById('interest-rate');
+        // Handling Text Inputs In MortgageData
+        const mortgageData = new MortgageData(amountInput, termInput, rateInput);
 
         // Grabbing All Radio Inputs
         const repaymentInput = document.getElementById('repayment');
         const interestOnlyInput = document.getElementById('interest-only');
 
-        const mortgageData = new MortgageData(amountInput, termInput, rateInput);
 
         // Calculating Mortgage Information
         let monthlyPayment;
@@ -30,7 +31,6 @@ function applyFormFunctionality(form) {
         console.log(totalRepayment);
 
         mortgageData.updateMortgageDisplay(monthlyPayment, totalRepayment);
-
     });
 }
 
